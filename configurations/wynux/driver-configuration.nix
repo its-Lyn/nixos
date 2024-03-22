@@ -37,7 +37,7 @@
       prime = {
         # Enable sync. May switch to PRIME Sync later.
         reverseSync.enable = true;
-        
+
         # ## Enable if using an external GPU ## #
         allowExternalGpu = false;
 
