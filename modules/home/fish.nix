@@ -1,3 +1,5 @@
 {
-
+  programs.fish = {
+    enable = true;
+  };
 }

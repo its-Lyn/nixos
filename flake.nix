@@ -10,9 +10,12 @@
 
   outputs = { home-manager, ... }@inputs: {
     # Include as modules in nixos configurations
-    nixosModules = import ./modules;
+    nixosModules = import ./modules/nixos;
 
-    # Use with: nixos-rebuild switch --flake "./#wynux"
+    # Include as modules in home-manager configurations
+    homeManagerModules = import ./modules/home;
+
+    # Use with: nixos-rebuild switch --flake "./#hostname"
     nixosConfigurations = import ./hosts inputs;
 
     # Run with: `nix fmt`

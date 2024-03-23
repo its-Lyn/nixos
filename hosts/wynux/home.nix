@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  imports = [
+    inputs.self.homeManagerModules.fish
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "evelyn";

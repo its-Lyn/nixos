@@ -1,0 +1,3 @@
+{
+  fish = import ./fish.nix;
+}
