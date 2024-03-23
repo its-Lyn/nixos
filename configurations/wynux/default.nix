@@ -85,6 +85,9 @@
       firefox
       kate
       #  thunderbird
+
+      hyfetch
+      vscode
     ];
   };
 
