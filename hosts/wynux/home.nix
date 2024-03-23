@@ -2,7 +2,6 @@
 
 {
   imports = [
-    inputs.self.homeManagerModules.fish
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -13,7 +12,9 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.file = {
-    ".config/fish/config.fish".source = ./config/fish/config.fish;
+    # Move fish configuration files to the config directory.
+    ".config/fish/config.fish".source = ../../configuration/fish/config.fish;
+    ".config/fish/scripts/".source    = ../../configuration/fish/scripts;
   };
 
   # Home Manager can also manage your environment variables through

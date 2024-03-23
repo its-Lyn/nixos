@@ -1,3 +1,2 @@
 {
-  fish = import ./fish.nix;
 }
