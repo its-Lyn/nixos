@@ -9,13 +9,13 @@ inputs: {
       ./wynux/default.nix
 
       # Begin Home Manager setup.
-      home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.evelyn = import ./wynux/home.nix;
 
-        extraSpecialArgs = { inherit inputs; };
+        home-manager.extraSpecialArgs = { inherit inputs; };
       }
     ];
   };

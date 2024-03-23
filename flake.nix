@@ -8,7 +8,7 @@
   inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = inputs: {
+  outputs = { home-manager, ... }@inputs: {
     # Include as modules in nixos configurations
     nixosModules = import ./modules;
 
