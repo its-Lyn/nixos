@@ -1,9 +1,12 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
+<<<<<<< HEAD
   imports = [
   ];
 
+=======
+>>>>>>> parent of 7724fe0 (Get home-manager modules to work, refactor modules/ dir, test with fish shell. Begin file setups.)
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "evelyn";
