@@ -1,3 +1,3 @@
 {
-  fish = import ./fish.nix;
+  firefox = import ./firefox.nix;
 }
