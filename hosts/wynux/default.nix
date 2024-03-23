@@ -43,17 +43,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-
-  # Choose wether to use Plasma 6 or Plasma 5
-
-  # ## For 6 ## #
-  # services.desktopManager.plasma6.enable = true;
-
-  # ## For 5 ## #
-  # services.xserver.desktopManager.plasma5.enable = true;
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -76,12 +65,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -99,20 +82,12 @@
       hyfetch
       vscode
     ];
-
-    shell = pkgs.fish;
-  };
-
-  # Change default shell.
-  programs.fish = {
-    enable = true;
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
   ];

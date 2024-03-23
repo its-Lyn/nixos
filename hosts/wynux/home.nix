@@ -1,43 +1,11 @@
 { config, pkgs, ... }:
-
 {
-<<<<<<< HEAD
-  imports = [
-  ];
-
-=======
->>>>>>> parent of 7724fe0 (Get home-manager modules to work, refactor modules/ dir, test with fish shell. Begin file setups.)
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "evelyn";
   home.homeDirectory = "/home/evelyn";
 
-  home.stateVersion = "23.11"; # Please read the comment before changing.
-
-  home.file = {
-    # Move fish configuration files to the config directory.
-    ".config/fish/config.fish".source = ../../configuration/fish/config.fish;
-    ".config/fish/scripts/".source    = ../../configuration/fish/scripts;
-  };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/evelyn/etc/profile.d/hm-session-vars.sh
-  #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
+  home.stateVersion = "23.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
