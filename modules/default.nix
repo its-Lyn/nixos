@@ -6,5 +6,5 @@
   nvidia = import ./nixos/nvidia.nix;
 
   # ## Home-Specific modules ## #
-  # TODO: This.
+  fish = import ./home/fish.nix;
 }

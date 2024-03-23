@@ -110,6 +110,9 @@
   # I do this because bluetooth only works on the latest.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Enable experimental features.
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

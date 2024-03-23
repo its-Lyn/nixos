@@ -4,6 +4,10 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+  # Home Manager url.
+  inputs.home-manager.url = "github:nix-community/home-manager";
+  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs = inputs: {
     # Include as modules in nixos configurations
     nixosModules = import ./modules;
