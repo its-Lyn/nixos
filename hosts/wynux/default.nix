@@ -44,8 +44,9 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # This uses my custom GNOME module.
+  eve.gnome.enable = true;
+  eve.gnome.extensions = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -77,11 +78,18 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      kate
-
-      hyfetch
       vscode
+      discord
+
     ];
+  };
+
+  # Enable password feedback.
+  # Show *** when typing password.
+  security.sudo = {
+    extraConfig = ''
+      Defaults   pwfeedback
+    '';
   };
 
   # Allow unfree packages
