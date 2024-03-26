@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.self.homeManagerModules.hyfetch
-    inputs.self.homeManagerModules.gtk
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

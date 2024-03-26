@@ -5,9 +5,8 @@ inputs: {
     modules = [
       inputs.self.nixosModules.git
       inputs.self.nixosModules.nvidia
-      inputs.self.nixosModules.gnome
 
-      ./wynux/default.nix
+      ./wynux
 
       # Begin Home Manager setup.
       inputs.home-manager.nixosModules.home-manager

@@ -43,10 +43,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  # This uses my custom GNOME module.
-  eve.gnome.enable = true;
-  eve.gnome.extensions = true;
+  # Enable the KDE desktop environment.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
