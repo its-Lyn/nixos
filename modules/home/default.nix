@@ -1,1 +1,3 @@
-{}
+{
+	hyfetch = import ./hyfetch.nix;
+}

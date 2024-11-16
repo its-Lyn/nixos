@@ -6,9 +6,12 @@ inputs: {
 			inputs.self.nixosModules.git
 
 			./nwix
-			home-manager.nixosModules.home-manager {
+
+			inputs.self.homeModules.hyfetch
+			inputs.home-manager.nixosModules.home-manager {
+				home-manager.useGlobalPkgs = true;
 				home-manager.users.eve = import ./nwix/home.nix;
-			};
+			}
 		];
 	};
 }
