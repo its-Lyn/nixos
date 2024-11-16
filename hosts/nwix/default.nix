@@ -68,11 +68,14 @@
 	# SSH.
 	services.openssh.enable = true;
 
+	programs.fish.enable = true;
+
 	# User
 	users.users.eve = {
 		isNormalUser = true;
 		description = "Evelyn Serra";
 		extraGroups = [ "wheel" ];
+		shell = pkgs.fish;
 		packages = with pkgs; [
 			firefox
 			kakoune
@@ -84,19 +87,6 @@
 
 	# Allow unfree software.
 	nixpkgs.config.allowUnfree = true;
-
-	# List packages installed in system profile. To search, run:
-	# environment.systemPackages = with pkgs; [
-	#   wget
-	# ];
-
-	# Some programs need SUID wrappers, can be configured further or are
-	# started in user sessions.
-	# programs.mtr.enable = true;
-	# programs.gnupg.agent = {
-	#   enable = true;
-	#   enableSSHSupport = true;
-	# };
 
 	# This option defines the first version of NixOS you have installed on this particular machine,
 	# and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

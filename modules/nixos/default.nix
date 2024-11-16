@@ -1,4 +1,6 @@
 {
-	git    = import ./git.nix;
-	nvidia = import ./nvidia.nix;
+	imports = [
+		./git.nix
+		./nvidia.nix
+	];
 }

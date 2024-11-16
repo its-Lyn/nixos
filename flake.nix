@@ -10,11 +10,28 @@
 	};
 
 	outputs = { self, nixpkgs, ... }@inputs: {
-		nixosModules = import ./modules/nixos;
-		homeModules  = import ./modules/home;
-
 		# Build with nixos-rebuild switch --flake "./#hostname"
 		# Available: nwix
-		nixosConfigurations = import ./hosts inputs;
+		nixosConfigurations = {
+			nwix = inputs.nixpkgs.lib.nixosSystem {
+				specialArgs = { 
+					inherit 
+						inputs
+						self;
+				};
+
+				modules = [
+					inputs.home-manager.nixosModules.home-manager {
+						home-manager.useUserPackages = true;
+						home-manager.useGlobalPkgs = true;
+				
+						home-manager.users.eve = import ./home/eve/home.nix;
+					}
+
+					./modules/nixos
+					./hosts/nwix
+				];
+			};
+		};
 	};
 }

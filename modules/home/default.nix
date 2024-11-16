@@ -1,3 +1,6 @@
 {
-	hyfetch = import ./hyfetch.nix;
+	imports = [
+		./fetches
+		./shells
+	];
 }
