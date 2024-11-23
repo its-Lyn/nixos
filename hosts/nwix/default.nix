@@ -8,17 +8,21 @@
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	# Custom OS Modules.
-	specialModules.nvidia.enable = true;
-	specialModules.nvidia.amdgpuBusId = "PCI:5:0:0";
-	specialModules.nvidia.nvidiaBusId = "PCI:1:0:0";
+	specialModules = {
+		nvidia.enable = true;
+		nvidia.amdgpuBusId = "PCI:5:0:0";
+		nvidia.nvidiaBusId = "PCI:1:0:0";
 
-	specialModules.git.enable = true;
-	specialModules.git.user   = "its-Lyn";
-	specialModules.git.email  = "143884194+its-Lyn@users.noreply.github.com";
+		git.enable = true;
+		git.user   = "its-Lyn";
+		git.email  = "143884194+its-Lyn@users.noreply.github.com";
+	};
 
 	# Use the systemd-boot EFI boot loader.
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+	boot = {
+		loader.systemd-boot.enable = true;
+		loader.efi.canTouchEfiVariables = true;
+	};
 
 	networking.hostName = "nwix"; # Define your hostname.
 	networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -33,40 +37,42 @@
 		keyMap = "us";
 	};
 
-	# Enable the X11 windowing system.
-	services.xserver.enable = true;
+	services = {
+		# Enable the X11 windowing system.
+		xserver.enable = true;
 
-	# Enable the Plasma Desktop Environment.
-	services.displayManager.sddm.enable = true;
-	services.desktopManager.plasma6.enable = true;
+		# Enable the Plasma Desktop Environment.
+		displayManager.sddm.enable = true;
+		desktopManager.plasma6.enable = true;
 
-	# Set wayland default
-	services.displayManager.defaultSession = "plasma";
-	services.displayManager.sddm.wayland.enable = true;
+		# Set wayland default
+		displayManager.defaultSession = "plasma";
+		displayManager.sddm.wayland.enable = true;
 
-	# Configure keymap in X11
-	services.xserver.xkb.layout = "us";
-	services.xserver.xkb.options = "eurosign:e,caps:escape";
+		# Configure keymap in X11
+		xserver.xkb.layout = "us";
+		xserver.xkb.options = "eurosign:e,caps:escape";
 
-	# Enable CUPS to print documents.
-	services.printing.enable = true;
+		# Enable CUPS to print documents.
+		printing.enable = true;
 
-	# Enable sound.
-	services.pipewire = {
-		enable = true;
-		pulse.enable = true;
-
-		alsa = {
+		# Enable sound.
+		pipewire = {
 			enable = true;
-			support32Bit = true;
+			pulse.enable = true;
+
+			alsa = {
+				enable = true;
+				support32Bit = true;
+			};
 		};
+
+		# Enable touchpad support (enabled default in most desktopManager).
+		libinput.enable = true;
+
+		# SSH.
+		openssh.enable = true;
 	};
-
-	# Enable touchpad support (enabled default in most desktopManager).
-	services.libinput.enable = true;
-
-	# SSH.
-	services.openssh.enable = true;
 
 	programs.fish.enable = true;
 
@@ -81,7 +87,18 @@
 			kakoune
 
 			discord
+			steam
 			vscode
+
+			# Minecraft
+			prismlauncher
+
+			# .NET Development
+			dotnet-sdk_8
+			dotnet-runtime_8
+			dotnet-aspnetcore_8
+
+			jetbrains.rider
 		];
 	};
 

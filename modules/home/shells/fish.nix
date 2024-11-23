@@ -4,11 +4,15 @@
 
 		shellAliases = {
 				nya = "sudo";
+
 				rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#nwix";
+				collect = "nix-collect-garbage";
 		};
 
 		interactiveShellInit = ''
 		set fish_greeting
+
+		fish_add_path ~/.dotnet/tools
 
 		function fish_prompt --description 'Write out the prompt'
 			set -l last_status $status

@@ -14,8 +14,8 @@
 		# Available: nwix
 		nixosConfigurations = {
 			nwix = inputs.nixpkgs.lib.nixosSystem {
-				specialArgs = { 
-					inherit 
+				specialArgs = {
+					inherit
 						inputs
 						self;
 				};
@@ -24,7 +24,7 @@
 					inputs.home-manager.nixosModules.home-manager {
 						home-manager.useUserPackages = true;
 						home-manager.useGlobalPkgs = true;
-				
+
 						home-manager.users.eve = import ./home/eve/home.nix;
 					}
 
