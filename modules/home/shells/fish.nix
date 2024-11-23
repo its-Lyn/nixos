@@ -5,8 +5,10 @@
 		shellAliases = {
 				nya = "sudo";
 
-				rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#nwix";
+				rebuild = "nh os switch /etc/nixos";
+				clean = "nh clean all";
 				collect = "nix-collect-garbage";
+				ed_conf = "code /etc/nixos";
 		};
 
 		interactiveShellInit = ''

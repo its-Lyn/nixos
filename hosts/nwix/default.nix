@@ -2,6 +2,7 @@
 {
 	imports = [
 		./hardware-configuration.nix
+		./services.nix
 	];
 
 	# Enable flakes
@@ -16,6 +17,28 @@
 		git.enable = true;
 		git.user   = "its-Lyn";
 		git.email  = "143884194+its-Lyn@users.noreply.github.com";
+	};
+
+	programs = {
+		steam = {
+			enable = true;
+			remotePlay.openFirewall = true;
+			dedicatedServer.openFirewall = true;
+			localNetworkGameTransfers.openFirewall = true;
+		};
+
+		nh = {
+			enable = true;
+
+			clean = {
+				enable = true;
+				extraArgs = "--keep 3";
+			};
+
+			flake = "/etc/nixos";
+		};
+
+		fish.enable = true;
 	};
 
 	# Use the systemd-boot EFI boot loader.
@@ -37,45 +60,6 @@
 		keyMap = "us";
 	};
 
-	services = {
-		# Enable the X11 windowing system.
-		xserver.enable = true;
-
-		# Enable the Plasma Desktop Environment.
-		displayManager.sddm.enable = true;
-		desktopManager.plasma6.enable = true;
-
-		# Set wayland default
-		displayManager.defaultSession = "plasma";
-		displayManager.sddm.wayland.enable = true;
-
-		# Configure keymap in X11
-		xserver.xkb.layout = "us";
-		xserver.xkb.options = "eurosign:e,caps:escape";
-
-		# Enable CUPS to print documents.
-		printing.enable = true;
-
-		# Enable sound.
-		pipewire = {
-			enable = true;
-			pulse.enable = true;
-
-			alsa = {
-				enable = true;
-				support32Bit = true;
-			};
-		};
-
-		# Enable touchpad support (enabled default in most desktopManager).
-		libinput.enable = true;
-
-		# SSH.
-		openssh.enable = true;
-	};
-
-	programs.fish.enable = true;
-
 	# User
 	users.users.eve = {
 		isNormalUser = true;
@@ -83,12 +67,16 @@
 		extraGroups = [ "wheel" ];
 		shell = pkgs.fish;
 		packages = with pkgs; [
-			firefox
-			kakoune
-
+			# Communication
 			discord
-			steam
+			element-desktop
+
+			# Network
+			firefox
+
+			# Dev
 			vscode
+			kakoune
 
 			# Minecraft
 			prismlauncher
@@ -101,6 +89,10 @@
 			jetbrains.rider
 		];
 	};
+
+	environment.systemPackages = with pkgs; [
+			nix-output-monitor
+	];
 
 	# Allow unfree software.
 	nixpkgs.config.allowUnfree = true;
