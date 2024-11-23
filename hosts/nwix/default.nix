@@ -5,6 +5,15 @@
 		./services.nix
 	];
 
+	# ! Switch from Nix to Lix
+	# * A better version of the nix *programming language*
+	# * Basically it has a better dev team, as well as more features
+	# * And it has the lesbian colour scheme (https://lix.systems)
+	# ! Comment below line if you do not want that.
+	# !!
+	nix.package = pkgs.lix;
+	# !!
+
 	# Enable flakes
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
