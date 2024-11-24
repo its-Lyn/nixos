@@ -50,11 +50,26 @@
 		fish.enable = true;
 	};
 
-	# Use the systemd-boot EFI boot loader.
 	boot = {
-		loader.systemd-boot.enable = true;
-		loader.efi.canTouchEfiVariables = true;
+		# Use the systemd-boot EFI boot loader.
+		loader = {
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+		};
+
+		# V4L2Loopback
+		extraModulePackages = with config.boot.kernelPackages; [
+			v4l2loopback
+		];
+
+		kernelModules = [ "v4l2loopback" ];
+		extraModprobeConfig = ''
+			options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+		'';
 	};
+
+	# God knows
+	security.polkit.enable = true;
 
 	networking.hostName = "nwix"; # Define your hostname.
 	networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
