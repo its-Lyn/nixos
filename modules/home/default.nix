@@ -3,5 +3,6 @@
 		./fetches
 		./shells
 		./desktops
+		./terminals
 	];
 }

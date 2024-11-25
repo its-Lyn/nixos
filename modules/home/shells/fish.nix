@@ -8,7 +8,7 @@
 				rebuild = "nh os switch /etc/nixos";
 				clean = "nh clean all";
 				collect = "nix-collect-garbage";
-				ed_conf = "code /etc/nixos";
+				ed_conf = "cd /etc/nixos && code /etc/nixos";
 		};
 
 		interactiveShellInit = ''
