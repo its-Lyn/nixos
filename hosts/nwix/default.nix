@@ -110,6 +110,9 @@
 			dotnet-aspnetcore_8
 
 			jetbrains.rider
+
+			# Utils
+			cloc
 		];
 	};
 
