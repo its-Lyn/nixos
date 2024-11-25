@@ -2,5 +2,6 @@
 	imports = [
 		./fetches
 		./shells
+		./desktops
 	];
 }

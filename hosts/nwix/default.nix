@@ -93,7 +93,6 @@
 		packages = with pkgs; [
 			# Communication
 			discord
-			element-desktop
 
 			# Network
 			firefox
