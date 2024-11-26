@@ -2,6 +2,7 @@
 {
 	imports = [
 		./hardware-configuration.nix
+		./schedules.nix
 		./services.nix
 	];
 
@@ -38,13 +39,6 @@
 
 		nh = {
 			enable = true;
-
-			clean = {
-				enable = true;
-				extraArgs = "--keep 3";
-			};
-
-			flake = "/etc/nixos";
 		};
 
 		fish.enable = true;
