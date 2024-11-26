@@ -21,13 +21,33 @@
         "type": "github"
       }
     },
+    "hopnot": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1732657642,
+        "narHash": "sha256-Es4CzinCAddoxmUDyqqxJQh18oLPntlNQQTAn49zoJ0=",
+        "owner": "its-Lyn",
+        "repo": "HopNotCLI",
+        "rev": "b9ad93f9ef91afa43cf803b3e893b91714848364",
+        "type": "github"
+      },
+      "original": {
+        "owner": "its-Lyn",
+        "repo": "HopNotCLI",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1731652201,
-        "narHash": "sha256-XUO0JKP1hlww0d7mm3kpmIr4hhtR4zicg5Wwes9cPMg=",
+        "lastModified": 1731797254,
+        "narHash": "sha256-df3dJApLPhd11AlueuoN0Q4fHo/hagP75LlM5K1sz9g=",
         "owner": "NixOs",
         "repo": "nixpkgs",
-        "rev": "c21b77913ea840f8bcf9adf4c41cecc2abffd38d",
+        "rev": "e8c38b73aeb218e27163376a2d617e61a2ad9b59",
         "type": "github"
       },
       "original": {
@@ -47,11 +67,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1732465698,
-        "narHash": "sha256-xiue+Kj2Jm8PwyZQcHl4CaYmMIgo5oi37hVHqiw2Unk=",
+        "lastModified": 1732639391,
+        "narHash": "sha256-kFtXjoCIqx9xe0ZryPXpqS6l/HVg71aNcuL8Y5e8+pI=",
         "owner": "nix-community",
         "repo": "plasma-manager",
-        "rev": "16d65cd02b5de665d1bcfec1616c02c71a1014a6",
+        "rev": "06e3209d11797d9c741e25df06ab61048746bf93",
         "type": "github"
       },
       "original": {
@@ -63,6 +83,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hopnot": "hopnot",
         "nixpkgs": "nixpkgs",
         "plasma-manager": "plasma-manager"
       }

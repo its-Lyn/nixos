@@ -14,6 +14,11 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 			inputs.home-manager.follows = "home-manager";
 		};
+
+		hopnot = {
+			url = "github:its-Lyn/HopNotCLI";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = { self, nixpkgs, home-manager, plasma-manager, ... }@inputs: {

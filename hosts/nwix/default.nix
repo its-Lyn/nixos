@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 {
 	imports = [
 		./hardware-configuration.nix
@@ -107,6 +107,7 @@
 
 			# Utils
 			cloc
+			specialArgs.inputs.hopnot.packages."x86_64-linux".hopnot
 		];
 	};
 
