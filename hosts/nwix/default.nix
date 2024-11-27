@@ -42,6 +42,8 @@
 		};
 
 		fish.enable = true;
+
+		dconf.enable = true;
 	};
 
 	boot = {
