@@ -34,6 +34,12 @@
 			# Color the prompt differently when we're root
 			set -l suffix 'λ'
 
+			set -l nix_info (
+				if test -n "$IN_NIX_SHELL"
+					echo -n "(shell) "
+				end
+			)
+
 			# For Root~
 			if functions -q fish_is_root_user; and fish_is_root_user
 					if set -q fish_color_cwd_root
@@ -48,7 +54,7 @@
 					set prompt_status $status_color "[" $last_status "]" $normal
 			end
 
-			echo -s $blue (prompt_pwd) $normal ' >~<' $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status
+			echo -s $blue (prompt_pwd) $normal ' >~< ' $blue $nix_info $normal $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status
 			echo -n -s $pink $suffix ' ' $normal
 		end
 		'';

@@ -10,7 +10,7 @@
 			"-L"
 		];
 
-		dates = "weekly";
+		dates = "daily";
 		randomizedDelaySec = "45min";
 	};
 

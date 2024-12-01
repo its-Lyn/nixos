@@ -15,7 +15,7 @@
 	};
 
 	config = lib.mkIf config.specialModules.nvidia.enable {
-		hardware.opengl = {
+		hardware.graphics = {
 			enable = true;
 		};
 
