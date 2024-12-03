@@ -87,6 +87,10 @@
 		extraGroups = [ "wheel" ];
 		shell = pkgs.fish;
 		packages = with pkgs; [
+			# Fonts
+			cascadia-code
+			ubuntu-sans
+
 			# Communication
 			discord
 			discord-canary

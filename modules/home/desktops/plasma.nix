@@ -21,6 +21,13 @@
 				wallpaper = root + /data/img/manjaro_wallpaper.png;
 			};
 
+			fonts = {
+				general = {
+					family = "Ubuntu Sans";
+					pointSize = 12;
+				};
+			};
+
 			panels = [
 				{
 					location = "top";
