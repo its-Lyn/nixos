@@ -71,11 +71,16 @@
 
 								hidden = [
 									"steam"
+									"obs"
 								];
 							};
 						}
 
-						"org.kde.plasma.digitalclock"
+						{
+							digitalClock = {
+								position = "belowTime";
+							};
+						}
 					];
 				}
 			];
