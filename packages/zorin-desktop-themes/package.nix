@@ -4,14 +4,14 @@
 	fetchFromGitHub,
 }:
 stdenvNoCC.mkDerivation rec {
-	pname = "zorin-icon-themes";
-	version = "3.3.1";
+	pname = "zorin-desktop-themes";
+	version = "4.2.1";
 
 	src = fetchFromGitHub {
 		owner = "ZorinOS";
-		repo = "zorin-icon-themes";
-		rev = "3.3.1";
-		sha256 = "00ldfz1wcn6h9wp78a1w0m3flyr6k5zp6b0kkcbp6g3g08g9mkv5";
+		repo = "zorin-desktop-themes";
+		rev = "4.2.1";
+		hash = "sha256-eeEU+yYpfzzIiyGu5IbPPv4rEO5E8Waeh9wyGxcEmPw=";
 	};
 
 	dontBuild = true;
@@ -19,13 +19,14 @@ stdenvNoCC.mkDerivation rec {
 	installPhase = ''
 		runHook preInstall
 
-		mkdir -p $out/share/icons
+		mkdir -p $out/share/themes
 
 		rm -rf debian
 		rm LICENSE README.md
 
-		mv * $out/share/icons
+		mv * $out/share/themes
 
 		runHook postInstall
 	'';
 }
+

@@ -18,7 +18,7 @@
 				};
 
 				iconTheme = "breeze";
-				wallpaper = root + /data/img/manjaro_wallpaper.png;
+				wallpaper = root + /data/img/manjaro-wallpaper.png;
 			};
 
 			fonts = {

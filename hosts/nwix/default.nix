@@ -58,14 +58,11 @@
 			v4l2loopback
 		];
 
-		kernelModules = [ "v4l2loopback" "quiet" ];
+		kernelModules = [ "v4l2loopback" ];
 		extraModprobeConfig = ''
 			options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
 		'';
 	};
-
-	# God knows
-	security.polkit.enable = true;
 
 	networking.hostName = "nwix"; # Define your hostname.
 	networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -79,6 +76,15 @@
 		font = "Lat2-Terminus16";
 		keyMap = "us";
 	};
+
+	# GNOME specific settings.
+	environment.gnome.excludePackages = with pkgs; [
+		gnome-tour
+		yelp
+		gnome-user-docs
+
+		epiphany
+	];
 
 	# User
 	users.users.eve = {
@@ -116,16 +122,21 @@
 
 			# Utils
 			cloc
-			lxqt.pavucontrol-qt
+			gnome-tweaks
 			specialArgs.inputs.hopnot.packages."x86_64-linux".hopnot
 
 			krita
 		];
 	};
 
-	environment.systemPackages = with pkgs; [
-			nix-output-monitor
-	];
+	environment.systemPackages = (with pkgs; [
+		nix-output-monitor
+	]) ++ (with pkgs.gnomeExtensions; [
+		xwayland-indicator
+		runcat
+		window-list
+		arcmenu
+	]);
 
 	# Allow unfree software.
 	nixpkgs.config.allowUnfree = true;

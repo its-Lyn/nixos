@@ -39,7 +39,7 @@
 			# stable, beta, production
 			# ^^^^^^
 			# Stable but not as stable as prod
-			package = config.boot.kernelPackages.nvidiaPackages.stable;
+			package = config.boot.kernelPackages.nvidiaPackages.production;
 
 			# Prime setup
 			prime = {

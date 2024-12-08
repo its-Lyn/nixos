@@ -1,19 +1,13 @@
 { config, libs, pkgs, ... }:
 {
 	services = {
-		# Enable the Plasma Desktop Environment.
-		desktopManager.plasma6.enable = true;
-		displayManager = {
-			sddm.enable = true;
-
-			# Set wayland default
-			defaultSession = "plasma";
-			sddm.wayland.enable = true;
-		};
-
 		# Enable the X11 windowing system.
 		xserver = {
 			enable = true;
+
+			# GNOME Desktop
+			displayManager.gdm.enable = true;
+			desktopManager.gnome.enable = true;
 
 			# Configure keymap in X11
 			xkb.layout = "us";

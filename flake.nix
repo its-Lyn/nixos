@@ -2,10 +2,10 @@
 	description = "Eve's System Configuration";
 
 	inputs = {
-		nixpkgs.url = "github:NixOs/nixpkgs/nixos-24.11";
+		nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
 
 		home-manager = {
-			url = "github:nix-community/home-manager/release-24.11";
+			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 

@@ -1,5 +1,5 @@
 {
 	imports = [
-		./konsole.nix
+		./gnome-terminal.nix
 	];
 }
